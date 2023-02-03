@@ -24,4 +24,13 @@ class UserProfileController extends Controller
 
         return ['rows' => $rowsAffected];
     }
+
+    public function newUser(Request $req, Response $res)
+    {
+
+        DB::insert('INSERT INTO users (strFullName, gender, dteDOB) VALUES (?, ?, ?)', [
+            $req->input('name'), $req->input('gender'), $req->input('dob')
+        ]);
+        return ["status" => 200, "message" =>  $req->input('name') . "was successfully created"];
+    }
 }

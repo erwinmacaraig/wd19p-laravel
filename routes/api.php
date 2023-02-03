@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/users', [UserProfileController::class, 'retrieveAllUsers']);
+Route::post('/new-user', [UserProfileController::class, 'newUser']);
+
 Route::post('/new-department', [UserProfileController::class, 'addNewDepartment']);
